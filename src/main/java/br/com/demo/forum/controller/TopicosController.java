@@ -1,5 +1,6 @@
 package br.com.demo.forum.controller;
 
+import br.com.demo.forum.controller.dto.TopicoDto;
 import br.com.demo.forum.modelo.Curso;
 import br.com.demo.forum.modelo.Topico;
 import org.springframework.stereotype.Controller;
@@ -13,8 +14,9 @@ import java.util.List;
 public class TopicosController {
     @RequestMapping("/topicos")
     @ResponseBody
-    public List<Topico> Lista() {
+    public List<TopicoDto> Lista() {
         Topico topico = new Topico("Dúvida", "Dúvida em String", new Curso("Spring", "Programação"));
-        return Arrays.asList(topico,topico, topico);
+        return TopicoDto.converter(Arrays.asList(topico, topico, topico));
     }
 }
+
