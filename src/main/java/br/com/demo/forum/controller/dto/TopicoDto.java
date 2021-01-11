@@ -1,10 +1,10 @@
 package br.com.demo.forum.controller.dto;
 
-import br.com.demo.forum.modelo.Topico;
-
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import br.com.demo.forum.modelo.Topico;
 
 public class TopicoDto {
 
@@ -12,7 +12,7 @@ public class TopicoDto {
 	private String titulo;
 	private String mensagem;
 	private LocalDateTime dataCriacao;
-	
+
 	public TopicoDto(Topico topico) {
 		this.id = topico.getId();
 		this.titulo = topico.getTitulo();
