@@ -1,5 +1,7 @@
 package br.com.demo.forum.controller.form;
 
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+
 public class LoginForm {
     private String email;
     private String senha;
@@ -18,5 +20,9 @@ public class LoginForm {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public UsernamePasswordAuthenticationToken converter() {
+        return new UsernamePasswordAuthenticationToken(email, senha);
     }
 }
