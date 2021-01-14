@@ -3,6 +3,7 @@ package br.com.demo.forum.controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -19,18 +20,19 @@ import br.com.demo.forum.controller.form.LoginForm;
 
 @RestController
 @RequestMapping("/auth")
+@Profile("prod")
 public class AutenticacaoController {
-	
+
 	@Autowired
 	private AuthenticationManager authManager;
-	
+
 	@Autowired
 	private TokenService tokenService;
 
 	@PostMapping
 	public ResponseEntity<TokenDto> autenticar(@RequestBody @Valid LoginForm form) {
 		UsernamePasswordAuthenticationToken dadosLogin = form.converter();
-		
+
 		try {
 			Authentication authentication = authManager.authenticate(dadosLogin);
 			String token = tokenService.gerarToken(authentication);
@@ -39,5 +41,5 @@ public class AutenticacaoController {
 			return ResponseEntity.badRequest().build();
 		}
 	}
-	
+
 }
