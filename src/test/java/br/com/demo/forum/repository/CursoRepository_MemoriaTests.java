@@ -11,7 +11,7 @@ import br.com.demo.forum.modelo.Curso;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class CursoRepository_MemoriaTeste {
+public class CursoRepository_MemoriaTests {
 
     private static final String CURSO_EXISTENTE = "HTML 5";
     private static final String CURSO_INEXISTENTE = "VISUAL BASIC";

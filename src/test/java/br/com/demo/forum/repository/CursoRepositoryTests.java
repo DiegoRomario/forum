@@ -16,7 +16,7 @@ import br.com.demo.forum.modelo.Curso;
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = Replace.NONE)
 @ActiveProfiles("test")
-public class CursoRepositoryTeste {
+public class CursoRepositoryTests {
 
     private static final String CURSO_EXISTENTE = "HTML 5";
     private static final String CURSO_INEXISTENTE = "VISUAL BASIC";
